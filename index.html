@@ -1,45 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f7dce8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>みんなの心理テスト</title>
 <style>
-:root{--pink:#d85f91;--deep:#70415d;--bg:#fff7fb;--line:#f0d6e3}
 *{box-sizing:border-box}
-body{margin:0;background:linear-gradient(145deg,#fff8fb,#f5f0ff);color:#503849;font-family:system-ui,-apple-system,"Yu Gothic",sans-serif}
-main{max-width:780px;margin:auto;padding:20px 15px 45px}
+body{margin:0;background:linear-gradient(145deg,#fff8fb,#f5f0ff);color:#503849;font-family:system-ui,"Yu Gothic",sans-serif}
+main{max-width:760px;margin:auto;padding:20px 15px 45px}
 header{text-align:center;padding:25px 10px}
-.eyebrow{color:var(--pink);font-weight:800;letter-spacing:.12em}
-h1{font-size:clamp(30px,7vw,44px);color:var(--deep);margin:8px 0}
-p{line-height:1.85}
-.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin:15px 0;box-shadow:0 8px 24px #a34c7910}
-h2{color:var(--deep);margin:0 0 14px;font-size:22px}
+h1{font-size:34px;color:#70415d;margin:10px 0}
+header p{color:#947b8b}
+.card{background:white;border:1px solid #f0d6e3;border-radius:22px;padding:22px;margin:15px 0;box-shadow:0 8px 24px #a34c7910}
+h2{color:#70415d;font-size:22px;margin-top:0}
 .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
-.category{border:1px solid var(--line);border-radius:17px;background:#fffafd;padding:18px 12px;text-align:center;cursor:pointer;font:inherit;color:var(--deep)}
+.category{border:1px solid #f0d6e3;border-radius:17px;background:#fffafd;padding:18px 10px;color:#70415d;font:inherit;cursor:pointer}
 .category strong{display:block;font-size:17px;margin:7px 0}
 .category span{font-size:13px;color:#947b8b}
-.category:hover,.category:focus,.choice:hover,.choice:focus{border-color:var(--pink);background:#fff1f7;outline:none}
 .choices{display:grid;gap:10px}
-.choice{display:flex;align-items:center;gap:12px;text-align:left;width:100%;padding:14px;border:1px solid var(--line);border-radius:15px;background:#fffafd;font:inherit;color:inherit;cursor:pointer}
-.letter{display:grid;place-items:center;flex:0 0 36px;height:36px;border-radius:50%;background:#fbe0ec;color:var(--deep);font-weight:800}
-button.primary{display:block;margin:16px auto 0;padding:12px 22px;border:0;border-radius:999px;background:var(--pink);color:white;font:inherit;font-weight:700;cursor:pointer}
-.secondary{background:#f6e7ef!important;color:var(--deep)!important}
+.choice{display:flex;align-items:center;gap:12px;width:100%;padding:14px;border:1px solid #f0d6e3;border-radius:15px;background:#fffafd;font:inherit;text-align:left;color:#503849;cursor:pointer}
+.choice:hover,.category:hover{background:#fff1f7;border-color:#d85f91}
+.letter{display:grid;place-items:center;flex:0 0 36px;height:36px;border-radius:50%;background:#fbe0ec;color:#70415d;font-weight:bold}
+button.primary{display:block;margin:15px auto 0;padding:12px 24px;border:0;border-radius:999px;background:#d85f91;color:white;font:inherit;font-weight:bold;cursor:pointer}
+.secondary{background:#f6e7ef!important;color:#70415d!important}
 .result{display:none}
-.tag{display:inline-block;background:#fff0f6;color:var(--deep);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700}
-ul{padding-left:22px;line-height:1.9}
-footer{text-align:center;color:#947b8b;font-size:12px;line-height:1.7;margin-top:25px}
+.tag{display:inline-block;background:#fff0f6;color:#70415d;padding:6px 12px;border-radius:999px;font-size:13px}
+#details{line-height:1.9;padding-left:22px}
+footer{text-align:center;color:#947b8b;font-size:12px;margin-top:25px;line-height:1.8}
 </style>
 </head>
 <body>
 <main>
+
 <header>
-<div class="eyebrow">♡ 直感で選ぶだけ ♡</div>
+<div>♡ 直感で選ぶだけ ♡</div>
 <h1>みんなの心理テスト</h1>
 <p>気になるジャンルを選んで、気軽に診断してみよう！</p>
 </header>
 
+<!-- トップ画面 -->
 <section class="card" id="home">
 <h2>ジャンルを選んでね</h2>
 <div class="categories">
@@ -51,14 +50,15 @@ footer{text-align:center;color:#947b8b;font-size:12px;line-height:1.7;margin-top
 </div>
 </section>
 
+<!-- 質問画面 -->
 <section class="card" id="quiz" style="display:none">
 <h2 id="catTitle"></h2>
 <p id="question"></p>
 <div class="choices" id="choices"></div>
-
-<button class="primary secondary" id="back">🏠 トップに戻る</button>
+<button class="primary secondary" id="previous" style="display:none">← 質問に戻る</button>
 </section>
 
+<!-- 結果画面 -->
 <section class="card result" id="result">
 <span class="tag" id="tag"></span>
 <h2 id="resultTitle"></h2>
@@ -66,17 +66,19 @@ footer{text-align:center;color:#947b8b;font-size:12px;line-height:1.7;margin-top
 <ul id="details"></ul>
 <p id="outro"></p>
 <button class="primary" id="share">LINEでシェア</button>
-<button class="primary secondary" id="retry">別の答えで診断</button>
-<button class="primary secondary" id="homeFromResult">🏠 トップに戻る</button>
+<button class="primary secondary" id="retry">もう一度診断する</button>
+<button class="primary secondary" id="homeButton">🏠 トップに戻る</button>
 </section>
 
 <footer>
 ※心理テストは娯楽としてお楽しみください。科学的な性格診断ではありません。
 </footer>
+
 </main>
 
 <script>
 const data={
+
 personality:{
 title:"性格診断",
 q:"休日に知らない街を訪れました。最初にしたいことは？",
@@ -89,11 +91,13 @@ intro:[
 "あなたは人との出会いから世界を広げるタイプ。"
 ],
 details:[
-"得意：段取りや目標設定。気をつけたい点：予定変更にこだわりすぎないこと。",
-"得意：柔軟さと発想力。気をつけたい点：勢いだけで決めないこと。",
-"得意：細やかな観察と感受性。気をつけたい点：考えすぎて疲れないこと。",
-"得意：会話や協力。気をつけたい点：相手に合わせすぎないこと。"
-]},
+"得意：段取りや目標設定。予定変更にも柔軟に対応できるとさらに◎。",
+"得意：柔軟さと発想力。勢いだけで決めないことも大切。",
+"得意：細やかな観察と感受性。考えすぎて疲れないように。",
+"得意：会話や協力。相手に合わせすぎず自分の気持ちも大切に。"
+]
+},
+
 friendship:{
 title:"友情・人間関係",
 q:"友達が落ち込んでいるとき、あなたがまずすることは？",
@@ -103,14 +107,16 @@ intro:[
 "あなたは相手の気持ちを受け止めることを大切にします。",
 "あなたは明るさや楽しい時間で相手を支えます。",
 "あなたは具体的な行動で助けようとします。",
-"あなたは無理に言葉を求めず、相手のペースを尊重します。"
+"あなたは相手のペースを尊重するタイプです。"
 ],
 details:[
-"長所：共感力。ヒント：自分の気持ちも大切に。",
-"長所：場を明るくする力。ヒント：相手が話したいときは聞き役に。",
-"長所：実行力。ヒント：助言の前に気持ちを確認すると◎。",
-"長所：落ち着きと配慮。ヒント：必要なら「話したくなったら聞くよ」と伝えて。"
-]},
+"長所は共感力。自分の気持ちも大切にしてね。",
+"長所は場を明るくする力。ときには聞き役になることも大切。",
+"長所は実行力。助言の前に相手の気持ちを確認すると◎。",
+"長所は落ち着きと配慮。必要なら「話したくなったら聞くよ」と伝えてみて。"
+]
+},
+
 deep:{
 title:"深層心理",
 q:"森の中で小さな箱を見つけました。箱の中に入っていたのは？",
@@ -123,11 +129,13 @@ intro:[
 "あなたは希望や、まだ見ぬ可能性を大切にするのかも。"
 ],
 details:[
-"大切にしたいこと：挑戦。小さな一歩から始めてみて。",
-"大切にしたいこと：余白。ひとりの時間も確保して。",
-"大切にしたいこと：自己理解。気持ちを書き出すのもおすすめ。",
-"大切にしたいこと：希望。夢を具体的な目標にしてみよう。"
-]},
+"大切にしたいことは挑戦。小さな一歩から始めてみて。",
+"大切にしたいことは余白。ひとりの時間も確保して。",
+"大切にしたいことは自己理解。気持ちを書き出すのもおすすめ。",
+"大切にしたいことは希望。夢を具体的な目標にしてみよう。"
+]
+},
+
 fun:{
 title:"おもしろ診断",
 q:"不思議な自動販売機がひとつだけ願いを叶えてくれます。何を選ぶ？",
@@ -140,11 +148,13 @@ intro:[
 "あなたは振り返りから学び、よりよくしたいタイプ。"
 ],
 details:[
-"幸せのヒント：好きなものを味わう時間を意識して。",
-"幸せのヒント：小さな冒険を予定に入れてみて。",
-"幸せのヒント：気になることを調べたり、誰かと話したりしてみて。",
-"幸せのヒント：反省だけでなく、できたことも数えてみて。"
-]},
+"幸せのヒントは好きなものを味わう時間を作ること。",
+"幸せのヒントは小さな冒険を予定に入れること。",
+"幸せのヒントは気になることを調べたり、誰かと話したりすること。",
+"幸せのヒントは反省だけでなく、できたことも数えること。"
+]
+},
+
 love:{
 title:"恋愛",
 q:"気になる人があなたに何かを渡してくれました。それは？",
@@ -157,14 +167,17 @@ intro:[
 "あなたは誠実さや、簡単には揺らがない深い絆を大切にするタイプ。"
 ],
 details:[
-"好きになるきっかけ：特別扱いや真っすぐな好意。大切なこと：愛情表現。気をつけたい点：反応を気にしすぎないこと。",
-"好きになるきっかけ：理解してくれたと感じたとき。大切なこと：気持ちを言葉にすること。気をつけたい点：深読みしすぎないこと。",
-"好きになるきっかけ：一緒に笑い、気を使わず過ごせたとき。大切なこと：居心地のよさ。気をつけたい点：本音を後回しにしないこと。",
-"好きになるきっかけ：誠実さや言動の一致。大切なこと：信頼。気をつけたい点：相手を大切にしつつ自分も尊重すること。"
-]}
+"大切なのは愛情表現。相手の反応を気にしすぎないことも大事。",
+"大切なのは気持ちを言葉にすること。深読みしすぎないように。",
+"大切なのは居心地のよさ。本音を後回しにしないでね。",
+"大切なのは信頼。相手と同じように自分も尊重してね。"
+]
+}
+
 };
 
-let current="",answer=0;
+let current="";
+let answer=0;
 
 const home=document.getElementById("home");
 const quiz=document.getElementById("quiz");
@@ -173,9 +186,11 @@ const result=document.getElementById("result");
 function showCategory(key){
 current=key;
 const d=data[key];
+
 home.style.display="none";
 quiz.style.display="block";
 result.style.display="none";
+
 document.getElementById("catTitle").textContent=d.title;
 document.getElementById("question").textContent=d.q;
 
@@ -183,31 +198,48 @@ const box=document.getElementById("choices");
 box.replaceChildren();
 
 d.opts.forEach((opt,i)=>{
-let b=document.createElement("button");
+const b=document.createElement("button");
 b.className="choice";
-b.innerHTML='<span class="letter">'+String.fromCharCode(65+i)+'</span>';
-let s=document.createElement("span");
-s.textContent=opt;
-b.appendChild(s);
+
+const letter=document.createElement("span");
+letter.className="letter";
+letter.textContent=String.fromCharCode(65+i);
+
+const text=document.createElement("span");
+text.textContent=opt;
+
+b.append(letter,text);
 b.onclick=()=>showResult(i);
 box.appendChild(b);
 });
+
+document.getElementById("previous").style.display="none";
+window.scrollTo({top:0,behavior:"smooth"});
 }
 
 function showResult(i){
 answer=i;
 const d=data[current];
-document.getElementById("tag").textContent=String.fromCharCode(65+i)+"を選んだあなた";
-document.getElementById("resultTitle").textContent="あなたは「"+d.names[i]+"」";
+
+document.getElementById("tag").textContent=
+String.fromCharCode(65+i)+"を選んだあなた";
+
+document.getElementById("resultTitle").textContent=
+"あなたは「"+d.names[i]+"」";
+
 document.getElementById("intro").textContent=d.intro[i];
 
 const details=document.getElementById("details");
 details.replaceChildren();
-let li=document.createElement("li");
+
+const li=document.createElement("li");
 li.textContent=d.details[i];
 details.appendChild(li);
 
-document.getElementById("outro").textContent="自分の傾向を知るヒントとして、気軽に楽しんでね。";
+document.getElementById("outro").textContent=
+"自分の傾向を知るヒントとして、気軽に楽しんでね。";
+
+quiz.style.display="none";
 result.style.display="block";
 result.scrollIntoView({behavior:"smooth"});
 }
@@ -219,23 +251,24 @@ result.style.display="none";
 window.scrollTo({top:0,behavior:"smooth"});
 }
 
-document.querySelectorAll(".category").forEach(b=>{
-b.onclick=()=>showCategory(b.dataset.cat);
+document.querySelectorAll(".category").forEach(button=>{
+button.onclick=()=>showCategory(button.dataset.cat);
 });
 
-document.getElementById("back").onclick=goHome;
-document.getElementById("homeFromResult").onclick=goHome;
+document.getElementById("homeButton").onclick=goHome;
 
 document.getElementById("retry").onclick=()=>{
 result.style.display="none";
-quiz.scrollIntoView({behavior:"smooth"});
+showCategory(current);
 };
 
 document.getElementById("share").onclick=()=>{
-let d=data[current];
-let txt="心理テストで「"+d.names[answer]+"」タイプでした♡";
-window.open("https://line.me/R/msg/text/?"+encodeURIComponent(txt+" "+location.href),"_blank");
+const d=data[current];
+const text="心理テストで「"+d.names[answer]+"」タイプでした♡";
+const shareText=text+" "+location.href;
+window.open("https://line.me/R/msg/text/?"+encodeURIComponent(shareText),"_blank");
 };
 </script>
+
 </body>
 </html>
