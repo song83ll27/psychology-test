@@ -1,12 +1,4 @@
-// ========================================
-// 共通変数
-// ========================================
-
 let currentQuizIndex = 0;
-
-// ========================================
-// 要素取得
-// ========================================
 
 const menuScreen =
   document.getElementById("menu-screen");
@@ -35,10 +27,6 @@ const resultTitle =
 const resultDetails =
   document.getElementById("result-details");
 
-// ========================================
-// 画面切り替え
-// ========================================
-
 function showOnly(screen) {
 
   [
@@ -51,10 +39,6 @@ function showOnly(screen) {
 
   screen.classList.remove("hidden");
 }
-
-// ========================================
-// 診断開始
-// ========================================
 
 function openQuiz(index) {
 
@@ -87,21 +71,11 @@ function openQuiz(index) {
       );
 
       answerList.appendChild(button);
-
     }
   );
 
   showOnly(questionScreen);
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
 }
-
-// ========================================
-// 結果表示
-// ========================================
 
 function showResult(answerIndex) {
 
@@ -135,28 +109,14 @@ function showResult(answerIndex) {
       text.textContent =
         paragraph;
 
-      section.append(
-        title,
-        text
-      );
+      section.append(title, text);
 
-      resultDetails.appendChild(
-        section
-      );
+      resultDetails.appendChild(section);
     }
   );
 
   showOnly(resultScreen);
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
 }
-
-// ========================================
-// 診断一覧生成
-// ========================================
 
 const quizMenu =
   document.getElementById("quiz-menu");
@@ -173,15 +133,12 @@ if (quizMenu) {
     const button =
       document.createElement("button");
 
-    button.dataset.quiz = index;
-
     button.innerHTML = `
-      ${marks[index] || (index + 1)}
-      ${quiz.title}
+      ${marks[index]} ${quiz.title}
       ${
         quiz.description
-          ? `<span>${quiz.description}</span>`
-          : ""
+        ? `<span>${quiz.description}</span>`
+        : ""
       }
     `;
 
@@ -194,10 +151,6 @@ if (quizMenu) {
 
   });
 }
-
-// ========================================
-// ボタン処理
-// ========================================
 
 document
   .getElementById("back-to-menu")
@@ -221,28 +174,13 @@ document
   );
 
 document
-  .getElementById("home-button")
-  ?.addEventListener(
-    "click",
-    () => {
-      window.location.href =
-        "index.html";
-    }
-  );
-
-document
   .getElementById("result-home-button")
   ?.addEventListener(
     "click",
     () => {
-      window.location.href =
-        "index.html";
+      location.href = "index.html";
     }
   );
-
-// ========================================
-// LINEシェア
-// ========================================
 
 document
   .getElementById("share-button")
@@ -250,14 +188,11 @@ document
     "click",
     () => {
 
-      const text =
+      const shareText =
         `私の診断結果は「${resultTitle.textContent}」でした！\n${location.href}`;
 
-      const url =
-        `https://line.me/R/msg/text/?${encodeURIComponent(text)}`;
-
       window.open(
-        url,
+        `https://line.me/R/msg/text/?${encodeURIComponent(shareText)}`,
         "_blank"
       );
 
