@@ -453,9 +453,9 @@ function showLoveResult(index) {
   resultDetails.appendChild(intro);
 
   result.sections.forEach(([heading, paragraph]) => {
-    const section = document.createElement("section");
-    section.className = "love-result-section";
-    const title = document.createElement("h3");
+  const section = document.createElement("section");
+  section.className = "detail-section";
+  const title = document.createElement("h4");
     title.textContent = heading;
     const text = document.createElement("p");
     text.textContent = paragraph;
