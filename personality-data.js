@@ -1,4 +1,6 @@
-const personalityQuizzes = [
+const pageTitle = "性格診断";
+
+const quizzes = [
   {
     title: "あなたの隠れた本当の性格",
     question: "誰もいない森の中を歩いていると、目の前に小さな扉がありました。あなたはどうする？",
