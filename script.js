@@ -1,21 +1,4 @@
 const quizzes = {
-  personality: {
-    title: "性格診断",
-    question: "休日に知らない街へ来ました。最初に何をする？",
-    answers: [
-      { text: "地図を見て観光名所へ行く", type: 0 },
-      { text: "気になる路地を自由に歩く", type: 1 },
-      { text: "おしゃれなカフェを探す", type: 2 },
-      { text: "地元の人におすすめを聞く", type: 3 }
-    ],
-    results: [
-      ["計画派タイプ", "計画を立てて行動するのが得意。安心感を大切にするタイプ。", "時には予定を決めずに動くと、新しい発見があるかも。"],
-      ["冒険派タイプ", "好奇心旺盛で、自分の感覚を信じて進むタイプ。", "直感に加えて、少しだけ計画性を持つとさらに安心。"],
-      ["感性派タイプ", "雰囲気や心地よさを大切にするタイプ。", "自分の好きなものを周りにも共有すると楽しさが広がるよ。"],
-      ["交流派タイプ", "人との出会いや会話から元気をもらうタイプ。", "一人の時間も大切にすると、気持ちのバランスが整うよ。"]
-    ]
-  },
-
   friendship: {
     title: "友情・人間関係診断",
     question: "友達が落ち込んでいるとき、どうする？",
@@ -32,7 +15,6 @@ const quizzes = {
       ["寄り添いタイプ", "言葉がなくても安心感を与えられるタイプ。", "必要なときは、言葉で気持ちを伝えてみよう。"]
     ]
   },
-
   deep: {
     title: "深層心理診断",
     question: "森の中で箱を見つけました。中に入っていたのは？",
@@ -49,7 +31,6 @@ const quizzes = {
       ["直感タイプ", "ひらめきや感覚を大切にするタイプ。", "直感と事実を合わせて考えると、判断しやすいよ。"]
     ]
   },
-
   fun: {
     title: "おもしろ診断",
     question: "自動販売機で願いが1つ叶うなら？",
@@ -66,7 +47,6 @@ const quizzes = {
       ["慎重派タイプ", "失敗を減らして納得したいタイプ。", "完璧でなくても、前に進む経験が力になるよ。"]
     ]
   },
-
   love: {
     title: "恋愛診断",
     question: "好きな人からプレゼントをもらうなら？",
@@ -88,15 +68,12 @@ const quizzes = {
 const topScreen = document.getElementById("top-screen");
 const quizScreen = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
-
 const quizTitle = document.getElementById("quiz-title");
 const quizQuestion = document.getElementById("quiz-question");
 const answerList = document.getElementById("answer-list");
-
 const resultTitle = document.getElementById("result-title");
 const resultDescription = document.getElementById("result-description");
 const resultAdvice = document.getElementById("result-advice");
-
 let currentCategory = null;
 
 function showScreen(screen) {
@@ -109,7 +86,6 @@ function showScreen(screen) {
 function showQuiz(category) {
   currentCategory = category;
   const quiz = quizzes[category];
-
   quizTitle.textContent = quiz.title;
   quizQuestion.textContent = quiz.question;
   answerList.innerHTML = "";
@@ -117,47 +93,35 @@ function showQuiz(category) {
   quiz.answers.forEach((answer) => {
     const button = document.createElement("button");
     button.textContent = answer.text;
-
-    button.addEventListener("click", () => {
-      showResult(answer.type);
-    });
-
+    button.addEventListener("click", () => showResult(answer.type));
     answerList.appendChild(button);
   });
-
   showScreen(quizScreen);
 }
 
 function showResult(type) {
   const result = quizzes[currentCategory].results[type];
-
   resultTitle.textContent = result[0];
   resultDescription.textContent = result[1];
   resultAdvice.textContent = result[2];
-
   showScreen(resultScreen);
 }
 
 document.querySelectorAll(".category-button").forEach((button) => {
   button.addEventListener("click", () => {
-    showQuiz(button.dataset.category);
+    const category = button.dataset.category;
+    if (category === "personality") {
+      window.location.href = "personality.html";
+      return;
+    }
+    showQuiz(category);
   });
 });
 
-document.getElementById("retry-button").addEventListener("click", () => {
-  showQuiz(currentCategory);
-});
-
-document.getElementById("home-button").addEventListener("click", () => {
-  showScreen(topScreen);
-});
-
+document.getElementById("retry-button").addEventListener("click", () => showQuiz(currentCategory));
+document.getElementById("home-button").addEventListener("click", () => showScreen(topScreen));
 document.getElementById("share-button").addEventListener("click", () => {
-  const text =
-    `私の診断結果は「${resultTitle.textContent}」でした！\n${location.href}`;
-
-  const lineUrl =
-    `https://line.me/R/msg/text/?${encodeURIComponent(text)}`;
-
+  const text = `私の診断結果は「${resultTitle.textContent}」でした！\n${location.href}`;
+  const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(text)}`;
   window.open(lineUrl, "_blank");
 });
