@@ -89,3 +89,16 @@ function showResult(answerIndex) {
     [menuScreen, questionScreen, resultScreen]
   );
 }
+
+const menuScreen = document.getElementById("menu-screen");
+const questionScreen = document.getElementById("question-screen");
+const resultScreen = document.getElementById("result-screen");
+
+const quizNumber = document.getElementById("quiz-number");
+const questionTitle = document.getElementById("question-title");
+const questionText = document.getElementById("question-text");
+
+const answerList = document.getElementById("answer-list");
+
+const resultTitle = document.getElementById("result-title");
+const resultDetails = document.getElementById("result-details");
