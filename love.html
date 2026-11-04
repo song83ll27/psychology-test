@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>恋愛診断｜心理テストの森</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .love-panel{background:#fff;border:1px solid #f0c5d8;border-radius:18px;padding:22px;margin:18px 0}
+    .love-panel h2,.love-panel h3{color:#d45d91}
+    .love-panel p{line-height:1.9}
+    .love-choices{display:grid;gap:12px}
+    .love-choices button{background:#fff;border:2px solid #f0c5d8;text-align:left;line-height:1.6}
+    .love-letter{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#fbe3ed;color:#9a426b;font-weight:bold;margin-right:9px}
+    .love-result-section{padding:12px 0;border-bottom:1px solid #f5dce7}
+    .love-result-section:last-child{border-bottom:0}
+    .love-result-section h3{margin-bottom:5px}
+    .love-buttons{display:grid;gap:10px;margin-top:18px}
+    .love-note{font-size:13px;color:#8b7180;text-align:center}
+  </style>
+  <script src="love.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="site-header">
+      <h1>🌷 恋愛心理テスト</h1>
+      <p>あなたの恋愛での本当の姿をチェックしてみよう</p>
+    </header>
+
+    <section id="love-question" class="love-panel">
+      <h2>🧠 あなたの恋愛での本当の姿</h2>
+      <p>あなたは好きな人とデートに出かけました。帰り際、相手から「今日は本当に楽しかった！」と言われました。<br>あなたならどう返す？</p>
+      <p><strong>直感でA〜Dからひとつ選んでね！</strong></p>
+      <div class="love-choices">
+        <button data-answer="0"><span class="love-letter">A</span>「私も！またすぐ会いたいな」と素直に伝える</button>
+        <button data-answer="1"><span class="love-letter">B</span>「楽しかったね！」と笑顔で返す</button>
+        <button data-answer="2"><span class="love-letter">C</span>「そんなに楽しかった？（笑）」とちょっと照れながら返す</button>
+        <button data-answer="3"><span class="love-letter">D</span>「次はどこに行こうか？」と次のデートの話をする</button>
+      </div>
+      <div class="love-buttons">
+        <button class="back-button" id="love-home">🏠 トップに戻る</button>
+      </div>
+    </section>
+
+    <section id="love-result" class="love-panel hidden">
+      <p class="page-intro">💕 あなたの診断結果 💕</p>
+      <h2 id="love-result-title"></h2>
+      <div id="love-result-details"></div>
+      <div class="love-buttons">
+        <button id="love-share">LINEでシェア</button>
+        <button id="love-retry">もう一度診断する</button>
+        <button class="back-button" id="love-result-home">🏠 トップに戻る</button>
+      </div>
+      <p class="love-note">※心理テストは遊びとして気軽に楽しんでね。科学的な性格判定ではありません。</p>
+    </section>
+  </main>
+</body>
+</html>
