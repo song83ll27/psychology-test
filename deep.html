@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>深層心理診断｜心理テストの森</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="deep-data.js"></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+
+<main class="container">
+
+  <header class="site-header">
+    <h1>🌙 深層心理診断</h1>
+
+    <p>
+      あなた自身も気づいていない心の奥をのぞいてみよう。
+    </p>
+  </header>
+
+  <section id="menu-screen" class="page-panel">
+
+    <p class="page-intro">
+      気になる診断を選んでください
+    </p>
+
+    <div id="quiz-menu"
+         class="quiz-menu"></div>
+
+    <p class="disclaimer">
+      ※結果はエンターテインメントとしてお楽しみください。
+    </p>
+
+  </section>
+
+  <section id="question-screen"
+           class="page-panel hidden">
+
+    <p id="quiz-number"></p>
+
+    <h2 id="question-title"></h2>
+
+    <p id="question-text"
+       class="question"></p>
+
+    <div id="answer-list"
+         class="answer-list"></div>
+
+    <div class="sub-buttons">
+
+      <button id="back-to-menu"
+              class="back-button">
+        診断メニューに戻る
+      </button>
+
+    </div>
+
+  </section>
+
+  <section id="result-screen"
+           class="page-panel hidden">
+
+    <p class="page-intro">
+      🌙 あなたの診断結果 🌙
+    </p>
+
+    <h2 id="result-title"></h2>
+
+    <div id="result-details"></div>
+
+    <div class="sub-buttons">
+
+      <button id="share-button">
+        LINEでシェア
+      </button>
+
+      <button id="retry-button">
+        もう一度診断する
+      </button>
+
+      <button id="result-menu-button"
+              class="back-button">
+        診断メニューに戻る
+      </button>
+
+      <button id="result-home-button"
+              class="back-button">
+        🏠 トップに戻る
+      </button>
+
+    </div>
+
+  </section>
+
+</main>
+
+</body>
+</html>
