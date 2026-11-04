@@ -15,6 +15,10 @@ body {
   margin: 0 auto;
 }
 
+/* ====================
+   ヘッダー
+==================== */
+
 .site-header {
   text-align: center;
   margin-bottom: 30px;
@@ -23,6 +27,14 @@ body {
 .site-header h1 {
   color: #d45d91;
 }
+
+.site-header p {
+  line-height: 1.8;
+}
+
+/* ====================
+   共通パネル
+==================== */
 
 .page-panel {
   background: #fff;
@@ -35,7 +47,22 @@ body {
   display: none !important;
 }
 
-/* メニュー */
+/* ====================
+   トップページ
+==================== */
+
+.category-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.category-button {
+  background: #f7d8e6;
+}
+
+/* ====================
+   メニュー
+==================== */
 
 .quiz-menu {
   display: grid;
@@ -52,11 +79,13 @@ body {
 .quiz-menu button span {
   display: block;
   margin-top: 5px;
-  color: #9b7184;
   font-size: 13px;
+  color: #9b7184;
 }
 
-/* 共通ボタン */
+/* ====================
+   共通ボタン
+==================== */
 
 button {
   border: none;
@@ -68,7 +97,8 @@ button {
   background: #f4c9dc;
   color: #4b3b45;
 
-  transition: 0.2s;
+  transition: opacity 0.2s,
+              transform 0.2s;
 }
 
 button:hover {
@@ -76,86 +106,4 @@ button:hover {
   transform: translateY(-2px);
 }
 
-.back-button {
-  background: #f8e7ef;
-}
-
-/* 質問 */
-
-.page-intro {
-  text-align: center;
-  line-height: 1.8;
-}
-
-.question {
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-.answer-list {
-  display: grid;
-  gap: 12px;
-}
-
-.answer-list button {
-  background: white;
-  border: 2px solid #f0c5d8;
-  text-align: left;
-}
-
-/* 結果 */
-
-#result-screen {
-  text-align: center;
-}
-
-#result-title {
-  color: #d45d91;
-  margin-bottom: 24px;
-}
-
-#result-details {
-  text-align: left;
-}
-
-.detail-section {
-  margin: 20px 0;
-  line-height: 1.9;
-}
-
-.detail-section h4 {
-  color: #c65387;
-  margin-bottom: 6px;
-}
-
-.detail-section p {
-  margin-top: 0;
-}
-
-/* ボタン欄 */
-
-.sub-buttons {
-  display: grid;
-  gap: 10px;
-  margin-top: 24px;
-}
-
-/* 注意書き */
-
-.disclaimer {
-  margin-top: 24px;
-  text-align: center;
-  color: #8b7781;
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-/* スマホ・PC共通調整 */
-
-@media (min-width: 600px) {
-
-  .sub-buttons {
-    grid-template-columns: 1fr 1fr;
-  }
-
-}
+.back-button
