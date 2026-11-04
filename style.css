@@ -33,18 +33,13 @@ body {
 }
 
 .page-panel {
-  background: white;
+  background: #fff;
   padding: 22px;
   border-radius: 18px;
   box-shadow: 0 3px 14px rgba(160, 90, 120, 0.07);
 }
 
-.page-intro {
-  text-align: center;
-  line-height: 1.8;
-}
-
-/* 共通ボタン */
+/* ボタン */
 
 button {
   border: none;
@@ -54,8 +49,7 @@ button {
   cursor: pointer;
   background: #f4c9dc;
   color: #4b3b45;
-  transition: opacity .2s,
-              transform .2s;
+  transition: opacity .2s, transform .2s;
 }
 
 button:hover {
@@ -64,148 +58,4 @@ button:hover {
 }
 
 .back-button {
-  background: #f8e7ef;
-}
-
-/* index */
-
-.category-grid {
-  display: grid;
-  gap: 12px;
-}
-
-.category-button {
-  background: #f7d8e6;
-}
-
-/* 診断メニュー */
-
-.quiz-menu {
-  display: grid;
-  gap: 12px;
-}
-
-.quiz-menu button {
-  background: white;
-  border: 2px solid #f0c5d8;
-  text-align: left;
-  line-height: 1.6;
-}
-
-.quiz-menu button span {
-  display: block;
-  margin-top: 5px;
-  color: #9b7184;
-  font-size: 13px;
-}
-
-/* 問題 */
-
-#quiz-number {
-  color: #9b7184;
-  text-align: left;
-  font-size: 14px;
-}
-
-.question {
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-.answer-list {
-  display: grid;
-  gap: 12px;
-}
-
-.answer-list button {
-  background: white;
-  border: 2px solid #f0c5d8;
-  text-align: left;
-  line-height: 1.7;
-  width: 100%;
-}
-
-.answer-list button:hover {
-  background: #fff9fc;
-}
-
-/* 結果 */
-
-#result-screen {
-  text-align: center;
-}
-
-#result-title {
-  color: #d45d91;
-  margin-bottom: 20px;
-}
-
-#result-details {
-  text-align: left;
-}
-
-.detail-section {
-  margin: 20px 0;
-  line-height: 1.9;
-}
-
-.detail-section h4 {
-  color: #c65387;
-  margin-bottom: 6px;
-}
-
-.detail-section p {
-  margin-top: 0;
-}
-
-/* ボタン群 */
-
-.sub-buttons,
-.result-buttons {
-  display: grid;
-  gap: 10px;
-  margin-top: 22px;
-}
-
-/* トップリンク */
-
-.home-link {
-  text-align: center;
-  margin-top: 18px;
-}
-
-.home-link a {
-  color: #c65387;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.home-link a:hover {
-  text-decoration: underline;
-}
-
-/* 注意書き */
-
-.disclaimer {
-  margin-top: 24px;
-  color: #8b7781;
-  font-size: 12px;
-  line-height: 1.7;
-  text-align: center;
-}
-
-/* PC */
-
-@media (min-width: 600px) {
-
-  .category-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .sub-buttons,
-  .result-buttons {
-    grid-template-columns: 1fr 1fr;
-  }
-
-}
+  background
