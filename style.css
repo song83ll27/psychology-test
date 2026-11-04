@@ -15,9 +15,7 @@ body {
   margin: 0 auto;
 }
 
-/* ====================
-   ヘッダー
-==================== */
+/* ヘッダー */
 
 .site-header {
   text-align: center;
@@ -28,28 +26,48 @@ body {
   color: #d45d91;
 }
 
-.site-header p {
-  line-height: 1.8;
-}
-
-/* ====================
-   共通パネル
-==================== */
-
-.page-panel {
-  background: #fff;
-  padding: 22px;
-  border-radius: 18px;
-  box-shadow: 0 3px 14px rgba(160, 90, 120, 0.07);
-}
+/* 共通 */
 
 .hidden {
   display: none !important;
 }
 
-/* ====================
-   トップページ
-==================== */
+.page-panel {
+  background: white;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 3px 14px rgba(160, 90, 120, 0.07);
+}
+
+.page-intro {
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* 共通ボタン */
+
+button {
+  border: none;
+  border-radius: 14px;
+  padding: 15px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #f4c9dc;
+  color: #4b3b45;
+  transition: opacity .2s,
+              transform .2s;
+}
+
+button:hover {
+  opacity: .9;
+  transform: translateY(-2px);
+}
+
+.back-button {
+  background: #f8e7ef;
+}
+
+/* index */
 
 .category-grid {
   display: grid;
@@ -60,9 +78,7 @@ body {
   background: #f7d8e6;
 }
 
-/* ====================
-   メニュー
-==================== */
+/* 診断メニュー */
 
 .quiz-menu {
   display: grid;
@@ -70,7 +86,7 @@ body {
 }
 
 .quiz-menu button {
-  background: #fff;
+  background: white;
   border: 2px solid #f0c5d8;
   text-align: left;
   line-height: 1.6;
@@ -79,38 +95,84 @@ body {
 .quiz-menu button span {
   display: block;
   margin-top: 5px;
-  font-size: 13px;
   color: #9b7184;
+  font-size: 13px;
 }
 
-/* ====================
-   共通ボタン
-==================== */
+/* 問題 */
 
-button {
-  border: none;
-  border-radius: 14px;
-  padding: 15px 18px;
-  font-size: 16px;
-  cursor: pointer;
-
-  background: #f4c9dc;
-  color: #4b3b45;
-
-  transition: opacity 0.2s,
-              transform 0.2s;
+#quiz-number {
+  color: #9b7184;
+  text-align: left;
+  font-size: 14px;
 }
 
-button:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+.question {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
 }
 
-.back-button
+.answer-list {
+  display: grid;
+  gap: 12px;
+}
+
+.answer-list button {
+  background: white;
+  border: 2px solid #f0c5d8;
+  text-align: left;
+  line-height: 1.7;
+  width: 100%;
+}
+
+.answer-list button:hover {
+  background: #fff9fc;
+}
+
+/* 結果 */
+
+#result-screen {
+  text-align: center;
+}
+
+#result-title {
+  color: #d45d91;
+  margin-bottom: 20px;
+}
+
+#result-details {
+  text-align: left;
+}
+
+.detail-section {
+  margin: 20px 0;
+  line-height: 1.9;
+}
+
+.detail-section h4 {
+  color: #c65387;
+  margin-bottom: 6px;
+}
+
+.detail-section p {
+  margin-top: 0;
+}
+
+/* ボタン群 */
+
+.sub-buttons,
+.result-buttons {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+/* トップリンク */
 
 .home-link {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .home-link a {
@@ -121,4 +183,29 @@ button:hover {
 
 .home-link a:hover {
   text-decoration: underline;
+}
+
+/* 注意書き */
+
+.disclaimer {
+  margin-top: 24px;
+  color: #8b7781;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* PC */
+
+@media (min-width: 600px) {
+
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sub-buttons,
+  .result-buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+
 }
