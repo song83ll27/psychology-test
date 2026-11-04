@@ -2,45 +2,82 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
   <title>心理テストの森</title>
+
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
+
 <body>
-  <main class="container">
-    <header class="site-header">
-      <h1>🌷 心理テストの森</h1>
-      <p>気になる診断を選んでね</p>
-    </header>
 
-    <section id="top-screen">
-      <div class="category-grid">
-        <button class="category-button" data-category="personality">性格診断</button>
-        <button class="category-button" data-category="friendship">友情・人間関係</button>
-        <button class="category-button" data-category="deep">深層心理</button>
-        <button class="category-button" data-category="fun">おもしろ診断</button>
-        <button class="category-button" data-category="love">恋愛診断</button>
-      </div>
-    </section>
+<main class="container">
 
-    <section id="quiz-screen" class="hidden">
-      <h2 id="quiz-title"></h2>
-      <p id="quiz-question" class="question"></p>
-      <div id="answer-list" class="answer-list"></div>
-    </section>
+  <header class="site-header">
 
-    <section id="result-screen" class="hidden">
-      <h2>診断結果</h2>
-      <h3 id="result-title"></h3>
-      <p id="result-description"></p>
-      <p id="result-advice"></p>
-      <div class="result-buttons">
-        <button id="share-button">LINEでシェア</button>
-        <button id="retry-button">もう一度診断する</button>
-        <button id="home-button">🏠 トップに戻る</button>
-      </div>
-    </section>
-  </main>
+    <h1>🌳 心理テストの森</h1>
+
+    <p>
+      性格・恋愛・人間関係・深層心理など、
+      気軽に楽しめる心理テストを集めました。
+    </p>
+
+  </header>
+
+  <section class="page-panel">
+
+    <div class="category-grid">
+
+      <button
+        class="category-button"
+        onclick="location.href='personality.html'">
+
+        🌷 性格診断
+
+      </button>
+
+      <button
+        class="category-button"
+        onclick="location.href='love.html'">
+
+        💕 恋愛診断
+
+      </button>
+
+      <button
+        class="category-button"
+        onclick="location.href='friendship.html'">
+
+        🤝 人間関係診断
+
+      </button>
+
+      <button
+        class="category-button"
+        onclick="location.href='deep.html'">
+
+        🌙 深層心理診断
+
+      </button>
+
+      <button
+        class="category-button"
+        onclick="location.href='fun.html'">
+
+        🎉 おもしろ診断
+
+      </button>
+
+    </div>
+
+    <p class="disclaimer">
+      ※すべての診断はエンターテインメントとしてお楽しみください。
+    </p>
+
+  </section>
+
+</main>
+
 </body>
 </html>
