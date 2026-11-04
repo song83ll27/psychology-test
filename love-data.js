@@ -1,4 +1,6 @@
-const loveQuizzes = [
+const pageTitle = "恋愛診断";
+
+const quizzes = [
   {
     "title": "あなたの恋愛での本当の姿",
     "question": "あなたは好きな人とデートに出かけました。帰り際、相手から「今日は本当に楽しかった！」と言われました。あなたならどう返す？",
