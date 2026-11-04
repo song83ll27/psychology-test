@@ -3,54 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>性格診断｜心理テストの森</title>
+
   <link rel="stylesheet" href="style.css">
-  <script src="app.js"></script>
-  <script src="personality.js" defer></script>
+
+  <script src="personality-data.js"></script>
+  <script src="app.js" defer></script>
 </head>
+
 <body>
-  <main class="container">
-    <header class="site-header">
-      <h1>🌷 性格診断</h1>
-      <p>気になる診断を選んでね</p>
-    </header>
 
-    <section id="menu-screen" class="page-panel">
-      <p class="page-intro">あなたの性格や魅力を、3つの角度からチェックしてみよう！<br>気になる診断を選んでね。</p>
-      <div id="quiz-menu" class="quiz-menu">
-        <button data-quiz="0">① あなたの隠れた本当の性格<span>自分でも気づいていない一面をチェック</span></button>
-        <button data-quiz="1">② あなたが周囲に与えている印象<span>周りからどんな人だと思われている？</span></button>
-        <button data-quiz="2">③ あなたの意外な魅力<span>あなたの中にある素敵な個性を発見</span></button>
-      </div>
-      <div class="sub-buttons">
-        <button class="back-button" id="home-from-menu">🏠 トップに戻る</button>
-      </div>
-      <p class="disclaimer">※この診断はエンターテインメントとして楽しむもので、科学的な性格判定ではありません。</p>
-    </section>
+<main class="container">
 
-    <section id="question-screen" class="page-panel hidden">
-      <p id="quiz-number" class="page-intro"></p>
-      <h2 id="question-title"></h2>
-      <p id="question-text" class="question"></p>
-      <div id="answer-list" class="answer-list"></div>
-      <div class="sub-buttons">
-        <button class="back-button" id="back-to-menu">診断メニューに戻る</button>
-      </div>
-    </section>
+  <header class="site-header">
+    <h1>🌷 性格診断</h1>
+    <p>あなたの性格や魅力をチェックしてみよう！</p>
+  </header>
 
-    <section id="result-screen" class="page-panel hidden">
-      <p class="page-intro">🌷 あなたの診断結果 🌷</p>
-      <h2 id="result-title"></h2>
-      <div id="result-details"></div>
-      <div class="sub-buttons">
-        <button id="share-button">LINEでシェア</button>
-        <button id="retry-button">この診断をもう一度</button>
-        <button class="back-button" id="result-menu-button">診断メニューに戻る</button>
-        <button class="back-button" id="home-button">🏠 トップに戻る</button>
-      </div>
-      <p class="disclaimer">※この診断はエンターテインメントとして楽しむもので、科学的な性格判定ではありません。</p>
-    </section>
-  </main>
-  <script src="personality.js" defer></script>
+  <!-- 診断一覧 -->
+  <section id="menu-screen" class="page-panel">
+
+    <p class="page-intro">
+      気になる診断を選んでください
+    </p>
+
+    <div id="quiz-menu" class="quiz-menu">
+
+      <button data-quiz="0">
+        ① あなたの隠れた本当の性格
+      </button>
+
+      <button data-quiz="1">
+        ② あなたが周囲に与えている印象
+      </button>
+
+      <button data-quiz="2">
+        ③ あなたの意外な魅力
+      </button>
+
+    </div>
+
+    <div class="sub-buttons">
+      <button id="home-button">
+        🏠 トップに戻る
+      </button>
+    </div>
+
+  </section>
+
+  <!-- 問題画面 -->
+  <section id="question-screen"
+           class="page-panel hidden">
+
+    <p id="quiz-number"
+       class="page-intro"></p>
+
+    <h2 id="question-title"></h2>
+
+    <p id="question-text"
+       class="question"></p>
+
+    <div id="answer-list"
+         class="answer-list"></div>
+
+    <div class="sub-buttons">
+
+      <button id="back-to-menu">
+        診断メニューに戻る
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- 結果画面 -->
+  <section id="result-screen"
+           class="page-panel hidden">
+
+    <p class="page-intro">
+      🌷 あなたの診断結果 🌷
+    </p>
+
+    <h2 id="result-title"></h2>
+
+    <div id="result-details"></div>
+
+    <div class="sub-buttons">
+
+      <button id="share-button">
+        LINEでシェア
+      </button>
+
+      <button id="retry-button">
+        もう一度診断する
+      </button>
+
+      <button id="result-menu-button">
+        診断メニューに戻る
+      </button>
+
+      <button id="result-home-button">
+        🏠 トップに戻る
+      </button>
+
+    </div>
+
+  </section>
+
+</main>
+
 </body>
 </html>
