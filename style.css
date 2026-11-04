@@ -107,3 +107,18 @@ button:hover {
 }
 
 .back-button
+
+.home-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.home-link a {
+  color: #c65387;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.home-link a:hover {
+  text-decoration: underline;
+}
